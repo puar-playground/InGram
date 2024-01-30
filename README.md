@@ -46,6 +46,8 @@ The model file is in `model.py`. For a KG with $x$ entities and $y$ relations, i
 ### 1. Model for batched input
 A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, $x$, $d_e$] and [3, $y$, $d_r$]. Please make sure each batch is initialized by the method in `initialize.py`. And make sure every step in the modified forward function is differentiable, (allow torch to do auto grad). 
 
+1. move the `self.rel_proj` layer in the `score` function in `model.py` line $1$
+
 
 ### 2. Embedding refinement function
 A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. 
