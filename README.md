@@ -16,30 +16,6 @@ The command to reproduce the results in our paper:
 python3 test.py --best --data_name [dataset_name]
 ```
 
-## Training from Scratch
-
-To train InGram from scratch, run `train.py` with arguments. Please refer to `my_parser.py` for the examples of the arguments. Please tune the hyperparameters of our model using the range provided in Appendix C of the paper because the best hyperparameters may be different due to randomness.
-
-The list of arguments of `train.py`:
-- `--data_name`: name of the dataset
-- `--exp`: experiment name
-- `-m, --margin`: $\gamma$
-- `-lr, --learning_rate`: learning rate
-- `-nle, --num_layer_ent`: $\widehat{L}$
-- `-nlr, --num_layer_rel`: $L$
-- `-d_e, --dimension_entity`: $\widehat{d}$
-- `-d_r, --dimension_relation`: $d$
-- `-hdr_e, --hidden_dimension_ratio_entity`: $\widehat{d'}/\widehat{d}$
-- `-hdr_r, --hidden_dimension_ratio_relation`: $d'/d$
-- `-b, --num_bin`: $B$
-- `-e, --num_epoch`: number of epochs to run
-- `--target_epoch`: the epoch to run test (only used for test.py)
-- `-v, --validation_epoch`: duration for the validation
-- `--num_head`: $\widehat{K}=K$
-- `--num_neg`: number of negative triplets per triplet
-- `--best`: use the provided checkpoints (only used for test.py)
-- `--no_write`: don't save the checkpoints (only used for train.py)
-
 ## Task
 The model file is in `model.py`. For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
 
