@@ -41,10 +41,14 @@ The list of arguments of `train.py`:
 - `--no_write`: don't save the checkpoints (only used for train.py)
 
 ## Task
-The model file is in `model.py`. For a KG with M entities and N relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [M, $d_e$] and [N, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
+The model file is in `model.py`. For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
 
-### 1. modify the model for batched input
-I need a new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, M, $d_e$] and [3, N, $d_r$]. Please make sure each batch is initialized by the method in `initialize.py`.
+### 1. Model for batched input
+A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, $x$, $d_e$] and [3, $y$, $d_r$]. Please make sure each batch is initialized by the method in `initialize.py`. And make sure every step in the modified forward function is differentiable, (allow torch to do auto grad). 
+
+
+### 2. Embedding refinement function
+A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. You can run inference $N$ times and save the embeddings as [$N$, $x$, $d_e$] and [$N$, $y$, $d_r$] to be the input of this function. Inside the function, you first define all input as `torch.parameter`, then you need to define an optimizer to maximize the loss function of the embeddings. 
 
 
 
