@@ -27,7 +27,7 @@ For a KG with $x$ entities and $y$ relations, if the embedding dimension for ent
 Please make 2 modifications of the code.
 
 ### 1. Model for batched input
-A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, x, $d_e$] and [3, $y$, $d_r$]. 
+A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: $[$3, x, $d_e$] and [3, $y$, $d_r$]. 
 
 1. Move the `self.rel_proj` layer in the `score` function in `model.py` line `221` to the end of the forward function before page `212`. The output should be `self.ent_proj2(layer_emb_ent)` and `self.rel_proj(self.rel_proj2(layer_emb_rel))`. And the score function should not have any NN paramters.
 2. Prepare the input with modified `initialize.py` (you need to write one). Please make sure each set of embeddings is initialized by the method in the original `initialize.py`.
