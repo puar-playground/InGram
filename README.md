@@ -44,9 +44,14 @@ The list of arguments of `train.py`:
 The model file is in `model.py`. For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
 
 ### 1. Model for batched input
-A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, $x$, $d_e$] and [3, $y$, $d_r$]. Please make sure each batch is initialized by the method in `initialize.py`. And make sure every step in the modified forward function is differentiable, (allow torch to do auto grad). 
+A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, $x$, $d_e$] and [3, $y$, $d_r$]. 
 
-1. move the `self.rel_proj` layer in the `score` function in `model.py` line $1$
+1. Move the `self.rel_proj` layer in the `score` function in `model.py` line $221$ to the end of the forward function before page $212$.
+2. Prepare the input with modified `initialize.py` (you need to write one). Please make sure each set of embeddings is initialized by the method in the original `initialize.py`.
+3. Make sure the output is in the dsired shape.
+4. Make sure all tensors are on the same device (cuda)
+5. Make sure every step in the modified forward function is differentiable, (allow torch to do auto grad). 
+
 
 
 ### 2. Embedding refinement function
