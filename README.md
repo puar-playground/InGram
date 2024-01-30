@@ -22,7 +22,7 @@ Preparations
 2. Understanding the dimension of all input / output of the foward function in `model.py`
 3. Be able to run the inference and get embeddings of a given initialization.
 
-For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. 
+For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [x, $d_e$] and [y, $d_r$]. The outputs are learned embeddings with the same dimension. 
 
 Please make 2 modifications of the code.
 
