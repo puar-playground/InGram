@@ -41,7 +41,12 @@ The list of arguments of `train.py`:
 - `--no_write`: don't save the checkpoints (only used for train.py)
 
 ## Task
-### 1. modify the model for batch input
-The model file is in `model.py`. The input is random initialized embeddings. For example, for a KG with M entities and N relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$.
+The model file is in `model.py`. For a KG with M entities and N relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [M, $d_e$] and [N, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
+
+### 1. modify the model for batched input
+I need a new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, M, $d_e$] and [3, N, $d_r$]. Please make sure each batch is initialized by the method in `initialize.py`.
+
+
+
 
 
