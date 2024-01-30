@@ -48,7 +48,7 @@ A new `model.py` file. The model should take batched input. For example, a batch
 
 
 ### 2. Embedding refinement function
-A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. You can run inference $N$ times and save the embeddings as [$N$, $x$, $d_e$] and [$N$, $y$, $d_r$] to be the input of this function. Inside the function, you first define all input as `torch.parameter`, then you need to define an optimizer to maximize the loss function of the embeddings. 
+A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. You can run inference $N$ times and save the embeddings as [$N$, $x$, $d_e$] and [$N$, $y$, $d_r$] to be the input of this function. Inside the function, you first define all input as `torch.nn.Parameter`, then you need to define an optimizer to update all embeddings to maximize the loss function. 
 
 
 
