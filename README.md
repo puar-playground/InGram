@@ -17,7 +17,14 @@ python3 test.py --best --data_name [dataset_name]
 ```
 
 ## Task
-The model file is in `model.py`. For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. I need 2 modifications on the code.
+Preparations
+1. Download the checkpoints and dataset using the source code.
+2. Understanding the dimension of all input / output of the foward function in `model.py`
+3. Be able to run the inference and get embeddings of a given initialization.
+
+For a KG with $x$ entities and $y$ relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$. (They use 32 for these dimensions) The input is random initialized embeddings of dimension [$x$, $d_e$] and [$y$, $d_r$]. The outputs are learned embeddings with the same dimension. 
+
+Please make 2 modifications of the code.
 
 ### 1. Model for batched input
 A new `model.py` file. The model should take batched input. For example, a batch size of $3$. The initialized inputs should have a shape: [3, $x$, $d_e$] and [3, $y$, $d_r$]. 
@@ -27,8 +34,6 @@ A new `model.py` file. The model should take batched input. For example, a batch
 3. Make sure the output is in the dsired shape.
 4. Make sure all tensors are on the same device (cuda)
 5. Make sure every step in the modified forward function is differentiable, (allow torch to do auto grad). 
-
-
 
 ### 2. Embedding refinement function
 A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. 
