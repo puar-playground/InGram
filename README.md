@@ -42,6 +42,6 @@ The list of arguments of `train.py`:
 
 ## Task
 ### 1. modify the model for batch input
-The model file is in `model.py`. 
+The model file is in `model.py`. The input is random initialized embeddings. For example, for a KG with M entities and N relations, if the embedding dimension for entity and relation were set to be $d_e$ and $d_r$.
 
 
