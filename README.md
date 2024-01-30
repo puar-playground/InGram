@@ -3,11 +3,8 @@ This code is the official implementation of the following [paper](https://procee
 
 
 ## Requirements
-
 We used Python 3.8 and PyTorch 1.12.1 with cudatoolkit 11.3.
-
 You can install all requirements with:
-
 ```shell
 pip install -r requirements.txt
 ```
@@ -15,7 +12,6 @@ pip install -r requirements.txt
 ## Reproducing the Reported Results
 Place the unzipped ckpt folder in the same directory with the codes. You can download the checkpoints from https://drive.google.com/file/d/1aZrx2dYNPT7j4TGVBOGqHMdHRwFUBqx5/view?usp=sharing.
 The command to reproduce the results in our paper:
-
 ```python
 python3 test.py --best --data_name [dataset_name]
 ```
@@ -43,3 +39,9 @@ The list of arguments of `train.py`:
 - `--num_neg`: number of negative triplets per triplet
 - `--best`: use the provided checkpoints (only used for test.py)
 - `--no_write`: don't save the checkpoints (only used for train.py)
+
+## Task
+### 1. modify the model for batch input
+The model file is in `model.py`. 
+
+
