@@ -37,12 +37,12 @@ A new `model.py` file. The model should take batched input. For example, a batch
 
 ### 2. Embedding refinement function
 A function that take a batch of KG embeddings (batch outputs of a trained InGram model) as inputs. And outputs refined embeddings in the same shape. 
-1. You can run inference $N$ times and save the embeddings as [$N$, $x$, $d_e$] and [$N$, $y$, $d_r$] to be the input of this function.
+1. You can run inference $N$ times and save the embeddings as [N, x, $d_e$] and [N, y, $d_r$] to be the input of this function.
 2. Inside the function, you first define all input as `torch.nn.Parameter`
 3. Then you need to define an optimizer to update all embeddings to maximize the loss function.
-4. The loss function is defined in `train.py` line `70`. And for batch size $N$, you should have $N$ losses. And the total loss is the mean of these $N$ losses. 
+4. The loss function is defined in `train.py` line `70`. And for batch size `N`, you should have `N` losses. And the total loss is the mean of these $N$ losses. 
 5. Repeat the optimization loop for $t$ (a hyper-parameter of the function) times.
-6. Use `detach()` to delete the gradiant of all embeddings. The output should be torch tensors without gradient and with shapes of [$N$, $x$, $d_e$] and [$N$, $y$, $d_r$].
+6. Use `detach()` to delete the gradiant of all embeddings. The output should be torch tensors without gradient and with shapes of [N, x, $d_e$] and [N, y, $d_r$].
 
 
 
