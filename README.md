@@ -1,19 +1,6 @@
 # InGram: Inductive Knowledge Graph Embedding via Relation Graphs
 This code is the official implementation of the following [paper](https://proceedings.mlr.press/v202/lee23c.html):
 
-> Jaejun Lee, Chanyoung Chung, and Joyce Jiyoung Whang, InGram: Inductive Knowledge Graph Embedding via Relation Graphs, The 40th International Conference on Machine Learning (ICML), 2023.
-
-All codes are written by Jaejun Lee (jjlee98@kaist.ac.kr). When you use this code or data, please cite our paper.
-
-```bibtex
-@inproceedings{ingram,
-	author={Jaejun Lee and Chanyoung Chung and Joyce Jiyoung Whang},
-	title={{I}n{G}ram: Inductive Knowledge Graph Embedding via Relation Graphs},
-	booktitle={Proceedings of the 40th International Conference on Machine Learning},
-	year={2023},
-	pages={18796--18809}
-}
-```
 
 ## Requirements
 
@@ -26,11 +13,7 @@ pip install -r requirements.txt
 ```
 
 ## Reproducing the Reported Results
-
-We used NVIDIA RTX A6000, NVIDIA GeForce RTX 2080 Ti, and NVIDIA GeForce RTX 3090 for all our experiments. We provide the checkpoints we used to produce the inductive link prediction results on 14 datasets. If you want to use the checkpoints, place the unzipped ckpt folder in the same directory with the codes.
-
-You can download the checkpoints from https://drive.google.com/file/d/1aZrx2dYNPT7j4TGVBOGqHMdHRwFUBqx5/view?usp=sharing.
-
+Place the unzipped ckpt folder in the same directory with the codes. You can download the checkpoints from https://drive.google.com/file/d/1aZrx2dYNPT7j4TGVBOGqHMdHRwFUBqx5/view?usp=sharing.
 The command to reproduce the results in our paper:
 
 ```python
